@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LearningComponent } from './learning/learning.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerAccountComponent } from './customer-account/customer-account.component';
 import { AccountCardComponent } from './account-card/account-card.component';
 import { PrefixPipe } from './custompipes/prefix.pipe';
@@ -25,7 +25,7 @@ import { OrderbyPipe } from './custompipes/orderby.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
