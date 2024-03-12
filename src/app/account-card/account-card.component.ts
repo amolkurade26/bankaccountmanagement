@@ -19,6 +19,7 @@ export class AccountCardComponent {
   // }
   @Output()
   eventEmitter = new EventEmitter<string>(); //1
+  
   ngOnInit(){
     this.eventEmitter.emit(this.accountHeading); //2. // via event we are passing data to direct parent
     this.spaceIndex = this.customerAccount.customerName.indexOf(" ");
