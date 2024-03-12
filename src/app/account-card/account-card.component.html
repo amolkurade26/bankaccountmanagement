@@ -1,0 +1,18 @@
+
+<div class="card bg-warning border border-5 border-dark">
+  <img src="assets\Images\Axis-Bank.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><i>acc no. </i>{{customerAccount.id}}</h5>
+    <h6 class="card-title"><small>Customer Name : </small><span>{{customerAccount.customerName | titlecase}}</span></h6>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><i>Account created on </i><b>{{customerAccount.accountDate}}</b></li>
+    <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance | number : '.2-2'}}</b></li>
+    <li class="list-group-item"><i>Customer Id: </i><b>{{customerAccount.customerId}}</b></li>
+    <li class="list-group-item"><i>Customer Name : </i><b>{{customerAccount.customerName | slice:0:spaceIndex | lowercase }}</b></li>
+    <li class="list-group-item"><i>Type of Account : </i><b>{{customerAccount.accountType | uppercase}}</b></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">More Details</a>
+  </div>
+</div>

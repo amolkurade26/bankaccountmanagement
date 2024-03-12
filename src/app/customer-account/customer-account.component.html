@@ -1,0 +1,35 @@
+<section>
+    <h2>ACCOUNT DETAILS</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of bankAccounts">
+                <td>{{account.id}}</td>
+                <td>{{account.customerName}}</td>
+                <td>{{account.accountType}}</td>
+                <td>{{account.accountBalance}}</td>
+                <td>{{account.accountDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>{{heading}}</h2> <!--4-->
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let account of bankAccounts ">
+            <app-account-card [customerAccount] = "account" (eventEmitter)="heading=$event"></app-account-card>
+        </div>
+    </div>
+</section>
+
+
+<!--
+
+    Angular Forms
+
+    Input form to take details of account
+-->

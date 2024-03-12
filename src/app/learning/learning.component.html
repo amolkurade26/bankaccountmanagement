@@ -1,0 +1,130 @@
+
+<h3  style="background: yellow; color: blue; border: 2px solid;">{{bankName}}</h3><!-- string interpolation {{property from ts}}-->
+<div>
+    <label for="bank" class="FontStyle">Enter BankName:</label>
+    <input type="text" name="bank" id="bank" [(ngModel)]="bankName" (keyup)="display()" (mouseenter)="test()">
+    <!-- blur, mouseenter-->
+</div>
+<div>
+    <input type="number" placeholder="Enter customer age" #customerInput>
+    <button type="button" (click)="inputMethod1(customerInput); inputMethod2(customerInput.value)">CLICK</button>
+</div>
+<div>
+    <button type="button" (click)="styleArray.pop()">POP</button>
+    <label for="cities" [ngClass]="styleArray">Enter your office location:</label>
+    <select  id="cities" [(ngModel)]="officeLocation" (change)="display()">
+        <option value="dadar">DADAR</option>
+        <option value="rabale">RABALE</option>
+        <option value="parel">PAREL</option>
+        <option value="pune">PUNE</option>
+    </select>
+</div>
+<hr>
+<div>
+    <h3 [ngStyle]="styleObject">IF</h3>
+    <input type="number" [(ngModel)]="customerAge" placeholder="Enter Customer Age">
+    <p>
+        <i><span [ngClass]="['fontStyle','borderStyle']">Customer Age age is :</span>{{customerAge}}</i>
+    </p>
+    <p *ngIf="customerAge>=18">
+        <b>YOUR AGE IS VALID</b>
+    </p>
+    <p *ngIf="customerAge<18">
+        <b>YOUR AGE IS IN-VALID</b>
+    </p>
+</div>
+<hr>
+<div>
+    <h3 [ngClass]="styleClassObject">IF-ELSE</h3>
+    <input type="number" [(ngModel)]="customerAge" placeholder="Enter Customer Age">
+    <p>
+        <i><span>Customer Age age is :</span>{{customerAge}}</i>
+    </p>
+    <p *ngIf="customerAge>=18 else elsepart">
+        <b>YOUR AGE IS VALID</b>
+    </p>
+    <ng-template #elsepart>
+        <p>
+            <b>YOUR AGE IS IN-VALID</b>
+        </p>
+    </ng-template>
+</div>
+
+<hr>
+<div>
+    <h3>NESTED IF-ELSE</h3>
+    <input type="number" [(ngModel)]="customerAge" placeholder="Enter Customer Age">
+    <p>
+        <i><span>Customer Age age is :</span>{{customerAge}}</i>
+    </p>
+    <p *ngIf="customerAge<0 else elsepart1">
+            <b>PLEASE ENTER POSITIVE NUMBER</b>
+    </p>
+    <ng-template #elsepart1>
+        <p *ngIf="customerAge>=18 else elsepart2">
+            <b>YOUR AGE IS VALID</b>
+        </p>
+    </ng-template>
+    <ng-template #elsepart2>
+        <p>
+            <b>YOUR AGE IS IN-VALID</b>
+        </p>
+    </ng-template>
+</div>
+<hr>
+<div>
+    <h3>IF-THEN-ELSE</h3>
+    <input type="number" [(ngModel)]="customerAge" placeholder="Enter Customer Age">
+    <p>
+        <i><span>Customer Age age is :</span>{{customerAge}}</i>
+    </p>
+    <span *ngIf="customerAge>=18 then thenblock;else elseblock"></span>
+    <ng-template #thenblock>
+        <p>
+            <b>YOUR AGE IS VALID</b>
+        </p>
+    </ng-template>
+    <ng-template #elseblock>
+        <p>
+            <b>YOUR AGE IS IN-VALID</b>
+        </p>
+    </ng-template>
+</div>
+<div>
+    <h3>FOR</h3>
+    <label for="offcities">Enter your office location:</label>
+    <select  id="offcities" [(ngModel)]="officeLocation" (change)="display()">
+       <option  *ngFor="let city of cities" [value]="city">{{city | uppercase }}</option>
+    </select>
+    <h3>BreakFast</h3>
+    <ol>
+        <li *ngFor="let item of menus; let e=even; let od=odd; let ct=count">{{item}} -  {{e}} - {{od}} -{{ct}}</li>
+    </ol>
+</div>
+<hr>
+<div>
+<input type="number" placeholder="enter percentage of student" [(ngModel)]="percentage">
+<div [ngSwitch]="true">
+    <p *ngSwitchCase="percentage>=70 && percentage<=100">
+        <b>Your grade is FIRST CLASS with DISTICTION</b>
+    </p>
+    <p  *ngSwitchCase="percentage<70 && percentage>=60"> 
+        <b>Your grade is FIRST CLASS</b>
+    </p>
+    <p  *ngSwitchCase="percentage<60 && percentage>=40">
+        <b>Your are PASS</b>
+    </p>
+    <p  *ngSwitchCase="percentage<40 && percentage>=0">
+        <b>Your are FAIL</b>
+    </p>
+ <!--    <p  *ngSwitchCase="percentage<60 && percentage>=40">
+        <b>HEY!!! Your are PASS</b>
+    </p> -->
+    <p  *ngSwitchDefault>
+        <b>WRONG INPUT</b>
+    </p>
+</div>
+
+<button class="btn btn-success">BOOTSTRAP BUTTON</button>
+
+</div>

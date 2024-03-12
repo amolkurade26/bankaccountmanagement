@@ -1,0 +1,14 @@
+/*add nav styling*/
+.navbar{
+    background: black;
+  
+}
+.navbar li{
+    display: inline-block;
+    margin: 10px;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    
+}
