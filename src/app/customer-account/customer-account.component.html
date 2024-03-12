@@ -20,7 +20,7 @@
     <h2>{{heading}}</h2> <!--4-->
 
     <div class="row">
-        <div class="col-md-4" *ngFor="let account of bankAccounts ">
+        <div class="col-md-4" *ngFor="let account of bankAccounts | orderby : 'customerName' ">
             <app-account-card [customerAccount] = "account" (eventEmitter)="heading=$event"></app-account-card>
         </div>
     </div>
