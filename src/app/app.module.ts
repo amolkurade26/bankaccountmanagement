@@ -11,6 +11,12 @@ import { CustomerAccountComponent } from './customer-account/customer-account.co
 import { AccountCardComponent } from './account-card/account-card.component';
 import { PrefixPipe } from './custompipes/prefix.pipe';
 import { OrderbyPipe } from './custompipes/orderby.pipe';
+import { LoginComponent } from './login/login.component';
+import { ViewNotFoundComponent } from './view-not-found/view-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { SalaryAccountComponent } from './salary-account/salary-account.component';
+import { SavingsAccountComponent } from './savings-account/savings-account.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,13 @@ import { OrderbyPipe } from './custompipes/orderby.pipe';
     CustomerAccountComponent,
     AccountCardComponent,
     PrefixPipe,
-    OrderbyPipe
+    OrderbyPipe,
+    LoginComponent,
+    ViewNotFoundComponent,
+    HomeComponent,
+    SalaryAccountComponent,
+    SavingsAccountComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

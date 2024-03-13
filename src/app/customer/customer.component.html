@@ -1,0 +1,35 @@
+<section *ngIf="customerFound==null">
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+            <tr *ngFor="let customer of customers">
+                    <td>{{customer.customerId}}</td>
+                    <td>{{customer.customerName}}</td>
+                    <td>{{customer.customerContact}}</td>
+                    <td>{{customer.emailId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section *ngIf="customerFound!=null">
+    <table class="table table-hover">
+        <tbody>
+        <tr>
+            <th>CUSTOMER ID:</th>
+            <td>{{customerFound!.customerId}}</td>
+        </tr>
+        <tr>
+            <th>CUSTOMER NAME:</th>
+            <td>{{customerFound!.customerName}}</td>
+        </tr>
+        <tr>
+            <th>CONTACT NUMBER:</th>
+            <td>{{customerFound!.customerContact}}</td>
+        </tr>
+        <tr>
+            <th>EMAIL ID:</th>
+            <td>{{customerFound!.emailId}}</td>
+        </tr>
+    </tbody>
+    </table>
+</section>

@@ -15,7 +15,6 @@ export class AccountCardComponent {
   spaceIndex = 0;
   // constructor(){
   //   console.log("in constructor of Account Card Component");
-  //   // logic 
   // }
   @Output()
   eventEmitter = new EventEmitter<string>(); //1

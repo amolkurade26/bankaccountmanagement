@@ -1,20 +1,12 @@
 
 <div class="card bg-warning border border-5 border-dark">
-  <img src="assets\Images\Axis-Bank.png" class="card-img-top" alt="...">
+  <img src="assets/Images/Axis-Bank.png" class="card-img-top" alt="axis bank account"> <!---->
   <div class="card-body">
-    <h5 class="card-title"><i>acc no. </i>{{customerAccount.id}}</h5>
+    <h5 class="card-title"><i>acc no.</i><span>{{customerAccount.id}}</span></h5>
     <h6 class="card-title"><small>Customer Name : </small><span>{{customerAccount.customerName | titlecase}}</span></h6>
   </div>
-  <!-- <ul class="list-group list-group-flush">
-    <li class="list-group-item"><i>Account created on </i><b>{{customerAccount.accountDate}}</b></li>
-    <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance | number : '.2-2'}}</b></li>
-    <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance | currency : "INR" : "symbol" : ".1-2"}}</b></li>
-    <li class="list-group-item"><i>Customer Id: </i><b>{{customerAccount.customerId}}</b></li>
-    <li class="list-group-item"><i>Customer Name : </i><b>{{customerAccount.customerName | slice:0:spaceIndex | lowercase }}</b></li>
-    <li class="list-group-item"><i>Type of Account : </i><b>{{customerAccount.accountType | uppercase}}</b></li>
-  </ul> -->
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><i>Account created on </i><b>{{customerAccount.accountDate | date : "fullDate"}}</b></li>
+    <li class="list-group-item"><i>Account created on </i><b>{{customerAccount.accountDate | date : "full"}}</b></li>
     <!-- <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance}}</b></li> -->
    <!--  <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance | number}}</b></li> --> 
    <!--  <li class="list-group-item"><i>Current Balance: </i><b>{{customerAccount.accountBalance | number : "10.2-2"}}</b></li> --> <!-- fix 2 digits after decimal place-->
@@ -25,27 +17,22 @@
     <li class="list-group-item"><i>Type of Account : </i><b>{{customerAccount.accountType | uppercase}}</b></li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">More Details</a>
+    <!--route with parameter-->
+    <a [routerLink]="['/customer', customerAccount.customerId]" class="card-link">More Details about Customer</a>
   </div>
 </div>
 <div>
+</div>
+<!--  <div>
   <h3>DATE PIPE</h3>
   <table class="table table-bordered">
     <tr><td>{{customerAccount.accountDate}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date}}</td></tr> <!-- medium date-->
+    <tr><td>{{customerAccount.accountDate | date}}</td></tr>
     <tr><td>{{customerAccount.accountDate | date : "shortDate"}}</td></tr>
     <tr><td>{{customerAccount.accountDate | date : "mediumDate"}}</td></tr>
     <tr><td>{{customerAccount.accountDate | date : "longDate"}}</td></tr>
     <tr><td>{{customerAccount.accountDate | date : "fullDate"}}</td></tr>
-
-    <!-- <tr><td>{{customerAccount.accountDate | date : "short"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "medium"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "long"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "full"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "shortTime"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "mediumTime"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "longTime"}}</td></tr>
-    <tr><td>{{customerAccount.accountDate | date : "fullTime"}}</td></tr> -->
+    <tr><td>{{customerAccount.accountDate | date : "EEEE, dd-MMMM-yyyy"}}</td></tr>
   </table>
 </div>
-
+-->

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BankAccount } from '../classes/bank-account';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from '../classes/custom-validators';
 
 @Component({
   selector: 'app-customer-account',
@@ -23,19 +24,21 @@ export class CustomerAccountComponent {
       accountType:new FormControl("savings"),
       accountBalance:new FormControl("", [Validators.required, Validators.min(0)]), //1 For Validation
       customerName:new FormControl("",[Validators.required, Validators.pattern("[a-zA-Z ]*"), Validators.minLength(2)]),
+      // customerName:new FormControl("",[Validators.required, Validators.pattern("^[a-zA-Z]+(\s[a-zA-Z]+)?$"), Validators.minLength(2)]),
       customerId:new FormControl("",[Validators.required]),
       id:new FormControl(),
       password:new FormControl("", [Validators.required, Validators.pattern("(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}")]),
-      confirmPassword: new FormControl("")
-    });
+      confirmPassword: new FormControl("",[Validators.required])
+    },CustomValidators.matchPassword);
   }
 
   createAccount(){
-    this.bankAccounts.push( new BankAccount(23000.1234,"Current","Amol Kurade","ax123",101,1011,new Date('01 March 2024')));
-    this.bankAccounts.push( new BankAccount(63000.3431,"Saving","Prathamensh Mahamuni","ax123",102,1022,new Date('02 March 2024')));
-    this.bankAccounts.push( new BankAccount(53000.9834,"Current","Sawan Kanojia","ax123",103,1033,new Date('05 March 2024')));
-    this.bankAccounts.push( new BankAccount(43000.4567,"Current","Bansidhar Tiwary","ax123",104,1044));
-    this.bankAccounts.push( new BankAccount(33000.3,"Saving","Rasika Parab","ax123",105,1055,new Date('15 March 2024')));
+    this.bankAccounts.push(new BankAccount(23000.78655,"current",'x123',"poonam Shah",666,67676767,new Date('12 March 2000')));
+    this.bankAccounts.push(new BankAccount(13000.4563,"savings","x123","SaMeer pujari",555,55555555,new Date('1 March 2000')));
+    this.bankAccounts.push(new BankAccount(83000.45,"current","x123","Radhika magar",787,86868686,new Date('12 May 2015')));
+    this.bankAccounts.push(new BankAccount(123000,"current","x123","Amar purohit",898,44444444));
+    this.bankAccounts.push(new BankAccount(1235000.123,"salary","x123","SaNdesh Mane",121,78787878,new Date('15 Nov 2020')));
+    this.bankAccounts.push(new BankAccount(1235000.123,"salary","x123","SaNdesh Kane",111,88787878));
   }
 
   // passData(data:string){
@@ -50,10 +53,7 @@ export class CustomerAccountComponent {
   get balance(){
     return this.accountForm.get('accountBalance'); //2 For Validation
   }
-
-  // get name(){
-  //   return this.accountForm.get('customerName');
-  // }
+  
   get custname(){
     return this.accountForm.get('customerName'); //2.
   }
@@ -64,6 +64,17 @@ export class CustomerAccountComponent {
 
   get pass(){
     return this.accountForm.get('password');
+  }
+
+  get confirmpass(){
+    return this.accountForm.get('confirmPassword');
+  }
+
+  setBorder(){
+    if(this.confirmpass!.getError('required') || this.confirmpass!.get('mismatch'))
+      return {border : "2px solid red"}
+      else
+      return{ border: "2px solid green"};
   }
 }
 
