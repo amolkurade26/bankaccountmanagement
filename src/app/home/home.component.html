@@ -1,27 +1,25 @@
-
 <section>
-    <h4>Open Savings Account Online</h4>
-    <img src="assets/Images/Axis-Bank.png" alt="bank">
-    <p>
-        Axis Bank provides wide range of savings account variants........
-    </p>
-   
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-          <!-- Links -->
-          <ul class="navbar-nav">
-            <li class="nav-item" routerLinkActive="activeLink">
-              <a class="nav-link" routerLink="savingsacc">INFO OF SAVINGS ACC</a>
-            </li>
-            <li class="nav-item" routerLinkActive="activeLink">
-              <a class="nav-link" routerLink="salaryacc">INFO OF SALARY ACC </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    <div>
-        <router-outlet></router-outlet>
+  <h4>Open Savings Account Online</h4>
+  <img src="assets/Images/Axis-Bank.png" alt="bank" />
+  <p>Axis Bank provides wide range of savings account variants........</p>
+  <section>
+    <app-savings-account></app-savings-account>
+    <app-salary-account></app-salary-account>
+  </section>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="activeLink">
+          <a class="nav-link" routerLink="savingsacc">INFO OF SAVINGS ACC</a>
+        </li>
+        <li class="nav-item" routerLinkActive="activeLink">
+          <a class="nav-link" routerLink="salaryacc">INFO OF SALARY ACC </a>
+        </li>
+      </ul>
     </div>
-
-
+  </nav>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </section>

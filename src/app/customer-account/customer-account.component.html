@@ -1,102 +1,169 @@
 <section>
-    <h2>ACCOUNT DETAILS</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr></tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let account of bankAccounts">
-                <td>{{account.id}}</td>
-                <td>{{account.customerName}}</td>
-                <td>{{account.accountType}}</td>
-                <td>{{account.accountBalance}}</td>
-                <td>{{account.accountDate}}</td>
-            </tr>
-        </tbody>
-    </table>
+  <h2>ACCOUNT DETAILS</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of bankAccounts">
+        <td>{{ account.id }}</td>
+        <td>{{ account.customerName }}</td>
+        <td>{{ account.accountType }}</td>
+        <td>{{ account.accountBalance }}</td>
+        <td>{{ account.accountDate }}</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
-<button class="btn btn-success" (click)="showForm=!showForm" type="button">NEW ACCOUNT</button>
+<button class="btn btn-success" (click)="showForm = !showForm" type="button">
+  NEW ACCOUNT
+</button>
 <section class="bg-warning w-75" *ngIf="showForm">
-    <h4>ACCOUNT INPUT FORM</h4>
-    <form [formGroup]="accountForm" (submit)="setDetails()">
-        <div class="mb-3">
-          <label for="accountType" class="form-label">Account Type</label>
-          <select id="accountType" class="form-select" formControlName="accountType">
-            <option value="savings">SAVINGS</option>
-            <option value="current">CURRENT</option>
-            <option value="salary">SALARY</option>
-          </select>
-        </div>
-        <div class="mb-3">
-            <label for="accountBalance" class="form-label">Set Balance</label>
-            <input type="number" class="form-control" id="accountBalance" formControlName="accountBalance">
-            <div *ngIf="balance!.touched" class="text-danger"> <!--3. -->
-                <b *ngIf="balance!.getError('required')"><small>This field required</small></b> 
-                <b *ngIf="balance!.getError('min')"><small>only positive amount allowed</small></b>
-            </div>
-        </div>
-        
-        <div class="mb-3">
-            <label for="customerId" class="form-label">Customer Id</label>
-            <input type="number" class="form-control" id="customerId" formControlName="customerId">
-            <div *ngIf="custid!.touched" class="text-danger"> <!--3. -->
-                <b *ngIf="custid!.getError('required')"><small>This field required</small></b>
-            </div>
-        </div>        
-        <div class="mb-3">
-            <label for="customerName" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" id="customerName" formControlName="customerName">
-            <div *ngIf="custname!.touched" class="text-danger"> <!--3. -->
-                <b *ngIf="custname!.getError('required')"><small>This field required</small></b>
-                <b *ngIf="custname!.getError('pattern') || custname!.getError('minlength')"><small>Please enter valid name</small></b>
-            </div>
-        </div>  
-        <div class="mb-3">
-            <label for="password" class="form-label">Set password</label>
-            <input type="text" class="form-control" id="password" formControlName="password">
-            <div *ngIf="pass!.touched" class="text-danger"> <!--3. -->
-                <b *ngIf="pass!.getError('required')"><small>This field required</small></b>
-                <ul *ngIf="pass!.getError('pattern')">
-                    <li>password must contain atleast one
-                        <ul>
-                            <li>Capital letter</li>
-                            <li>Small letter</li>
-                            <li>number</li>
-                            <li>{{"Symbol from [#?!@$%^&*-]"}}</li>
-                        </ul>
-                    </li>
-                    <li>password must be 8 to 20 characters long</li>
-                </ul>
-            </div>
-        </div>  
-        <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" [ngStyle]="setBorder()">
-            <div *ngIf="confirmpass!.touched" class="text-danger"> <!--3. -->
-                <b *ngIf="confirmpass!.getError('required')"><small>This field required</small></b>
-                <b *ngIf="accountForm!.getError('mismatch')"><small>Both passwords must be matched</small></b>
-            </div>
-        </div>        
-        <div class="mb-3">
-            <label for="id" class="form-label">Account Number</label>
-            <input type="number" class="form-control" id="id" formControlName="id">
-        </div>
-        <input type="submit" class="btn btn-primary m-2" value="CREATE ACCOUNT" [disabled]="accountForm.invalid">
-        <input type="reset" class="btn btn-primary">
-      </form>
-</section>
+  <h4>ACCOUNT INPUT FORM</h4>
+  <form [formGroup]="accountForm" (submit)="setDetails()">
+    <div class="mb-3">
+      <label for="accountType" class="form-label">Account Type</label>
+      <select
+        id="accountType"
+        class="form-select"
+        formControlName="accountType"
+      >
+        <option value="savings">SAVINGS</option>
+        <option value="current">CURRENT</option>
+        <option value="salary">SALARY</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="accountBalance" class="form-label">Set Balance</label>
+      <input
+        type="number"
+        class="form-control"
+        id="accountBalance"
+        formControlName="accountBalance"
+      />
+      <div *ngIf="balance!.touched" class="text-danger">
+        <!--3. -->
+        <b *ngIf="balance!.getError('required')"
+          ><small>This field required</small></b
+        >
+        <b *ngIf="balance!.getError('min')"
+          ><small>only positive amount allowed</small></b
+        >
+      </div>
+    </div>
 
+    <div class="mb-3">
+      <label for="customerId" class="form-label">Customer Id</label>
+      <input
+        type="number"
+        class="form-control"
+        id="customerId"
+        formControlName="customerId"
+      />
+      <div *ngIf="custid!.touched" class="text-danger">
+        <!--3. -->
+        <b *ngIf="custid!.getError('required')"
+          ><small>This field required</small></b
+        >
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="customerName" class="form-label">Customer Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="customerName"
+        formControlName="customerName"
+      />
+      <div *ngIf="custname!.touched" class="text-danger">
+        <!--3. -->
+        <b *ngIf="custname!.getError('required')"
+          ><small>This field required</small></b
+        >
+        <b
+          *ngIf="
+            custname!.getError('pattern') || custname!.getError('minlength')
+          "
+          ><small>Please enter valid name</small></b
+        >
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Set password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+      <div *ngIf="pass!.touched" class="text-danger">
+        <!--3. -->
+        <b *ngIf="pass!.getError('required')"
+          ><small>This field required</small></b
+        >
+        <ul *ngIf="pass!.getError('pattern')">
+          <li>
+            password must contain atleast one
+            <ul>
+              <li>Capital letter</li>
+              <li>Small letter</li>
+              <li>number</li>
+              <li>{{ "Symbol from [#?!@$%^&*-]" }}</li>
+            </ul>
+          </li>
+          <li>password must be 8 to 20 characters long</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        [ngStyle]="setBorder()"
+      />
+      <div *ngIf="confirmpass!.touched" class="text-danger">
+        <!--3. -->
+        <b *ngIf="confirmpass!.getError('required')"
+          ><small>This field required</small></b
+        >
+        <b *ngIf="accountForm!.getError('mismatch')"
+          ><small>Both passwords must be matched</small></b
+        >
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="id" class="form-label">Account Number</label>
+      <input type="number" class="form-control" id="id" formControlName="id" />
+    </div>
+    <input
+      type="submit"
+      class="btn btn-primary m-2"
+      value="CREATE ACCOUNT"
+      [disabled]="accountForm.invalid"
+    />
+    <input type="reset" class="btn btn-primary" />
+  </form>
+</section>
 
 <section>
-    <h2>{{heading}}</h2> <!--4-->
+  <h2>{{ heading }}</h2>
+  <!--4-->
 
-    <div class="row">
-        <div class="col-md-4" *ngFor="let account of bankAccounts | orderby : 'customerName' ">
-            <app-account-card [customerAccount] = "account" (eventEmitter)="heading=$event"></app-account-card>
-        </div>
+  <div class="row">
+    <div
+      class="col-md-4"
+      *ngFor="let account of bankAccounts | orderby : 'customerName'"
+    >
+      <app-account-card
+        [customerAccount]="account"
+        (eventEmitter)="heading = $event"
+      ></app-account-card>
     </div>
+  </div>
 </section>
-
 
 <!--
 

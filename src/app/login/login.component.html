@@ -1,7 +1,7 @@
 
 <section>
     <h4>LOGIN FORM</h4>
-    <form ngNativeValidate (submit)="login(loginForm)"    #loginForm="ngForm">
+    <i class="text-danger">{{loginError}}</i>    <form ngNativeValidate (submit)="login(loginForm)"    #loginForm="ngForm">
         <div class="mb-3">
             <label for="username" class="form-label">User Name</label>
             <input type="text" class="form-control" id="username" name="username"   ngModel  required> 

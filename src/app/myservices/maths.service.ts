@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MathsService {
-  public serviceCounter:number;
+  public serviceCounter: number;
   constructor() {
-    this.serviceCounter=0;
-   }
+    this.serviceCounter = 0;
+  }
 
-   increment():void{
+  incrementCounter(): void {
     this.serviceCounter++;
-   }
+  }
 
-   getCOunter(){
+  getCounter() {
     return this.serviceCounter;
-   }
-
-
-
+  }
 }
-
-
