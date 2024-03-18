@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { SalaryAccountComponent } from './salary-account/salary-account.component';
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
 import { CustomerComponent } from './customer/customer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { CustomerComponent } from './customer/customer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, ReactiveFormsModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

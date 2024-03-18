@@ -2,10 +2,11 @@
 <!-- design nav here-->
 <nav class="navbar">
     <ol>
-        <li routerLinkActive="activeLink"><a routerLink="home" >HOME</a></li>
-        <li routerLinkActive="activeLink"><a routerLink="bankaccounts">SHOW ACCOUNTS</a></li>
-        <li routerLinkActive="activeLink"><a routerLink="customer" >SHOW CUSTOMERS</a></li>
-        <li routerLinkActive="activeLink"><a routerLink="login">LOGIN</a></li>
-        <li routerLinkActive="activeLink"><a routerLink="contact">CONTACT US</a></li>
+        <li routerLinkActive="active"><a routerLink="home">HOME</a></li>
+        <li routerLinkActive="active"><a routerLink="bankaccounts" >SHOW ACCOUNTS</a></li>
+        <li routerLinkActive="active"><a routerLink="customer" >SHOW CUSTOMERS</a></li>
+        <li *ngIf="!loginTest()"  routerLinkActive="active"><a routerLink="login" >LOGIN</a></li>
+        <li routerLinkActive="active"><a routerLink="contact" >CONTACT US</a></li>
+        <li *ngIf="loginTest()"><button type="button" class="btn btn-link" (click)="logOut()">LOGOUT</button></li>
     </ol>
 </nav>
