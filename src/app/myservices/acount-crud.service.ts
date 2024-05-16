@@ -19,4 +19,14 @@ export class AcountCRUDService {
     return this.http.get(this.serveraddress);//backend
   }
 
+  deleteAccountByAccNum(accountNumber:number){
+    //id is attached in url
+    return this.http.delete(this.serveraddress+"/"+accountNumber);
+  }
+
+  updateAccount(bankAccount:BankAccount){
+    // console.log(bankAccount.id);
+    return this.http.put(`${this.serveraddress}/${bankAccount.id}`,bankAccount);
+  }
+
 }

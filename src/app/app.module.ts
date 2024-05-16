@@ -18,6 +18,9 @@ import { SalaryAccountComponent } from './salary-account/salary-account.componen
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
 import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -38,9 +41,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, MatIconModule,MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

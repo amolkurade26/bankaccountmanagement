@@ -15,9 +15,10 @@
     </tbody>
   </table>
 </section>
-<button class="btn btn-success" (click)="showForm = !showForm" type="button">
+<button mat-raised-button color="primary" (click)="resetForm()" matTooltip="CLICK TO VIEW/HIDE THE FORM" matTooltipPosition="right"  matTooltipHideDelay="2000">CREATE NEW ACCOUNT</button>
+<!-- <button class="btn btn-success" (click)="showForm = !showForm" type="button">
   NEW ACCOUNT
-</button>
+</button> -->
 <section class="bg-warning w-75" *ngIf="showForm">
   <h4>ACCOUNT INPUT FORM</h4>
   <form [formGroup]="accountForm" (submit)="setDetails()">
